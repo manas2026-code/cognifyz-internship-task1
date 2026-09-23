@@ -55,6 +55,10 @@
                 transform: translateY(0);
             }
         }
+
+        #courseInfo {
+            display: none;
+        }
     </style>
 </head>
 
@@ -64,11 +68,21 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <span class="navbar-brand fw-bold">Student Portal</span>
+
+            <div>
+                <a href="#home" class="btn btn-outline-light btn-sm me-2">
+                    Home
+                </a>
+
+                <a href="#register" class="btn btn-outline-light btn-sm">
+                    Register
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero text-center">
+    <!-- Home Section -->
+    <section id="home" class="hero text-center">
         <div class="container">
             <h1 class="display-4 fw-bold animate-title">
                 Student Registration
@@ -77,11 +91,15 @@
             <p class="lead">
                 Register yourself for your preferred course.
             </p>
+
+            <a href="#register" class="btn btn-light">
+                Register Now
+            </a>
         </div>
     </section>
 
     <!-- Registration Section -->
-    <section class="py-5">
+    <section id="register" class="py-5">
         <div class="container">
 
             <div class="row justify-content-center">
@@ -97,8 +115,10 @@
                         <form action="/submit" method="POST"
                               onsubmit="return validateForm()">
 
+                            <!-- Name -->
                             <div class="mb-3">
                                 <label class="form-label">Name</label>
+
                                 <input
                                     type="text"
                                     id="name"
@@ -107,8 +127,10 @@
                                 >
                             </div>
 
+                            <!-- Email -->
                             <div class="mb-3">
                                 <label class="form-label">Email</label>
+
                                 <input
                                     type="email"
                                     id="email"
@@ -117,8 +139,10 @@
                                 >
                             </div>
 
+                            <!-- Age -->
                             <div class="mb-3">
                                 <label class="form-label">Age</label>
+
                                 <input
                                     type="number"
                                     id="age"
@@ -127,7 +151,27 @@
                                 >
                             </div>
 
-                            <div class="mb-4">
+                            <!-- Password -->
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    class="form-control"
+                                >
+
+                                <small id="passwordMessage"
+                                       class="text-muted">
+                                    Password must contain at least 8 characters,
+                                    one uppercase letter, one lowercase letter,
+                                    one number and one special character.
+                                </small>
+                            </div>
+
+                            <!-- Course -->
+                            <div class="mb-3">
                                 <label class="form-label">Course</label>
 
                                 <select
@@ -135,17 +179,27 @@
                                     name="course"
                                     class="form-select"
                                 >
-                                    <option value="">Select Course</option>
+                                    <option value="">
+                                        Select Course
+                                    </option>
+
                                     <option value="Web Development">
                                         Web Development
                                     </option>
+
                                     <option value="JavaScript">
                                         JavaScript
                                     </option>
+
                                     <option value="Python">
                                         Python
                                     </option>
                                 </select>
+                            </div>
+
+                            <!-- Dynamic Course Information -->
+                            <div id="courseInfo"
+                                 class="alert alert-info">
                             </div>
 
                             <button
@@ -168,6 +222,7 @@
 
     <!-- Features Section -->
     <section class="py-5 bg-white">
+
         <div class="container">
 
             <h2 class="text-center mb-4">
@@ -179,6 +234,7 @@
                 <div class="col-md-4">
                     <div class="card feature-card h-100 border-0 shadow-sm p-3">
                         <h4>Easy Registration</h4>
+
                         <p>
                             Simple and user-friendly registration process.
                         </p>
@@ -188,6 +244,7 @@
                 <div class="col-md-4">
                     <div class="card feature-card h-100 border-0 shadow-sm p-3">
                         <h4>Responsive Design</h4>
+
                         <p>
                             The page works on desktop, tablet and mobile screens.
                         </p>
@@ -197,6 +254,7 @@
                 <div class="col-md-4">
                     <div class="card feature-card h-100 border-0 shadow-sm p-3">
                         <h4>Validated Data</h4>
+
                         <p>
                             User information is validated before submission.
                         </p>
@@ -206,35 +264,174 @@
             </div>
 
         </div>
+
     </section>
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
+
         <p class="mb-0">
             Student Portal | Cognifyz Internship
         </p>
+
     </footer>
 
     <script>
+
+        // Password strength validation
+        function checkPasswordStrength() {
+
+            const password =
+                document.getElementById("password").value;
+
+            const message =
+                document.getElementById("passwordMessage");
+
+            const strongPassword =
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+
+            if (password === "") {
+
+                message.textContent =
+                    "Password is required.";
+
+            } else if (strongPassword.test(password)) {
+
+                message.textContent =
+                    "Strong password.";
+
+            } else {
+
+                message.textContent =
+                    "Weak password. Use 8+ characters, uppercase, lowercase, number and special character.";
+            }
+        }
+
+
+        // Dynamic DOM update based on course selection
+        function updateCourseInfo() {
+
+            const course =
+                document.getElementById("course").value;
+
+            const courseInfo =
+                document.getElementById("courseInfo");
+
+            if (course === "") {
+
+                courseInfo.style.display = "none";
+                courseInfo.textContent = "";
+
+            } else {
+
+                courseInfo.style.display = "block";
+
+                courseInfo.textContent =
+                    "You selected: " + course +
+                    ". This course is available for registration.";
+            }
+        }
+
+
+        // Form validation
         function validateForm() {
 
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const age = document.getElementById("age").value;
-            const course = document.getElementById("course").value;
+            const name =
+                document.getElementById("name").value.trim();
 
-            if (name === "" || email === "" || age === "" || course === "") {
+            const email =
+                document.getElementById("email").value.trim();
+
+            const age =
+                document.getElementById("age").value;
+
+            const password =
+                document.getElementById("password").value;
+
+            const course =
+                document.getElementById("course").value;
+
+
+            if (
+                name === "" ||
+                email === "" ||
+                age === "" ||
+                password === "" ||
+                course === ""
+            ) {
+
                 alert("Please fill all fields.");
+
                 return false;
             }
+
 
             if (age < 13 || age > 100) {
+
                 alert("Please enter a valid age.");
+
                 return false;
             }
+
+
+            const strongPassword =
+                /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+
+            if (!strongPassword.test(password)) {
+
+                alert(
+                    "Password must contain 8+ characters, uppercase, lowercase, number and special character."
+                );
+
+                return false;
+            }
+
 
             return true;
         }
+
+
+        // Dynamic events
+        document
+            .getElementById("password")
+            .addEventListener(
+                "input",
+                checkPasswordStrength
+            );
+
+        document
+            .getElementById("course")
+            .addEventListener(
+                "change",
+                updateCourseInfo
+            );
+
+
+        // Client-side routing using URL hash
+        window.addEventListener("hashchange", function () {
+
+            const section =
+                window.location.hash;
+
+            if (section === "#register") {
+
+                document
+                    .getElementById("register")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+            } else {
+
+                document
+                    .getElementById("home")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+            }
+
+        });
+
     </script>
 
 </body>
