@@ -8,21 +8,58 @@
 
     <h1>Student Registration Form</h1>
 
-    <form action="/submit" method="POST">
+    <form action="/submit" method="POST" onsubmit="return validateForm()">
 
         <label>Name:</label>
-        <input type="text" name="name" required>
+        <input type="text" id="name" name="name">
 
         <br><br>
 
         <label>Email:</label>
-        <input type="email" name="email" required>
+        <input type="email" id="email" name="email">
+
+        <br><br>
+
+        <label>Age:</label>
+        <input type="number" id="age" name="age">
+
+        <br><br>
+
+        <label>Course:</label>
+        <select id="course" name="course">
+            <option value="">Select Course</option>
+            <option value="Web Development">Web Development</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+        </select>
 
         <br><br>
 
         <button type="submit">Submit</button>
 
     </form>
+
+    <script>
+        function validateForm() {
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const age = document.getElementById("age").value;
+            const course = document.getElementById("course").value;
+
+            if (name === "" || email === "" || age === "" || course === "") {
+                alert("Please fill all fields.");
+                return false;
+            }
+
+            if (age < 13 || age > 100) {
+                alert("Please enter a valid age.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 
 </body>
 </html>
