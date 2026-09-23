@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,7 +68,10 @@
     <!-- Navigation -->
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-            <span class="navbar-brand fw-bold">Student Portal</span>
+
+            <span class="navbar-brand fw-bold">
+                Student Portal
+            </span>
 
             <div>
                 <a href="#home" class="btn btn-outline-light btn-sm me-2">
@@ -78,12 +82,16 @@
                     Register
                 </a>
             </div>
+
         </div>
     </nav>
 
+
     <!-- Home Section -->
     <section id="home" class="hero text-center">
+
         <div class="container">
+
             <h1 class="display-4 fw-bold animate-title">
                 Student Registration
             </h1>
@@ -95,11 +103,15 @@
             <a href="#register" class="btn btn-light">
                 Register Now
             </a>
+
         </div>
+
     </section>
+
 
     <!-- Registration Section -->
     <section id="register" class="py-5">
+
         <div class="container">
 
             <div class="row justify-content-center">
@@ -112,12 +124,16 @@
                             Registration Form
                         </h2>
 
-                        <form action="/submit" method="POST"
-                              onsubmit="return validateForm()">
+
+                        <!-- Registration Form -->
+                        <form id="studentForm">
 
                             <!-- Name -->
                             <div class="mb-3">
-                                <label class="form-label">Name</label>
+
+                                <label class="form-label">
+                                    Name
+                                </label>
 
                                 <input
                                     type="text"
@@ -125,11 +141,16 @@
                                     name="name"
                                     class="form-control"
                                 >
+
                             </div>
+
 
                             <!-- Email -->
                             <div class="mb-3">
-                                <label class="form-label">Email</label>
+
+                                <label class="form-label">
+                                    Email
+                                </label>
 
                                 <input
                                     type="email"
@@ -137,11 +158,16 @@
                                     name="email"
                                     class="form-control"
                                 >
+
                             </div>
+
 
                             <!-- Age -->
                             <div class="mb-3">
-                                <label class="form-label">Age</label>
+
+                                <label class="form-label">
+                                    Age
+                                </label>
 
                                 <input
                                     type="number"
@@ -149,11 +175,16 @@
                                     name="age"
                                     class="form-control"
                                 >
+
                             </div>
+
 
                             <!-- Password -->
                             <div class="mb-3">
-                                <label class="form-label">Password</label>
+
+                                <label class="form-label">
+                                    Password
+                                </label>
 
                                 <input
                                     type="password"
@@ -162,23 +193,31 @@
                                     class="form-control"
                                 >
 
-                                <small id="passwordMessage"
-                                       class="text-muted">
+                                <small
+                                    id="passwordMessage"
+                                    class="text-muted"
+                                >
                                     Password must contain at least 8 characters,
                                     one uppercase letter, one lowercase letter,
                                     one number and one special character.
                                 </small>
+
                             </div>
+
 
                             <!-- Course -->
                             <div class="mb-3">
-                                <label class="form-label">Course</label>
+
+                                <label class="form-label">
+                                    Course
+                                </label>
 
                                 <select
                                     id="course"
                                     name="course"
                                     class="form-select"
                                 >
+
                                     <option value="">
                                         Select Course
                                     </option>
@@ -194,14 +233,21 @@
                                     <option value="Python">
                                         Python
                                     </option>
+
                                 </select>
+
                             </div>
+
 
                             <!-- Dynamic Course Information -->
-                            <div id="courseInfo"
-                                 class="alert alert-info">
+                            <div
+                                id="courseInfo"
+                                class="alert alert-info"
+                            >
                             </div>
 
+
+                            <!-- Register Button -->
                             <button
                                 type="submit"
                                 class="btn btn-dark w-100"
@@ -218,7 +264,34 @@
             </div>
 
         </div>
+
     </section>
+
+
+    <!-- Registered Students Section -->
+    <section class="py-5 bg-light">
+
+        <div class="container">
+
+            <h2 class="text-center mb-4">
+                Registered Students
+            </h2>
+
+            <div
+                id="studentsList"
+                class="row g-4"
+            >
+
+                <p class="text-center">
+                    Loading students...
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
 
     <!-- Features Section -->
     <section class="py-5 bg-white">
@@ -232,33 +305,53 @@
             <div class="row g-4">
 
                 <div class="col-md-4">
+
                     <div class="card feature-card h-100 border-0 shadow-sm p-3">
-                        <h4>Easy Registration</h4>
+
+                        <h4>
+                            Easy Registration
+                        </h4>
 
                         <p>
                             Simple and user-friendly registration process.
                         </p>
+
                     </div>
+
                 </div>
 
+
                 <div class="col-md-4">
+
                     <div class="card feature-card h-100 border-0 shadow-sm p-3">
-                        <h4>Responsive Design</h4>
+
+                        <h4>
+                            Responsive Design
+                        </h4>
 
                         <p>
                             The page works on desktop, tablet and mobile screens.
                         </p>
+
                     </div>
+
                 </div>
 
+
                 <div class="col-md-4">
+
                     <div class="card feature-card h-100 border-0 shadow-sm p-3">
-                        <h4>Validated Data</h4>
+
+                        <h4>
+                            Validated Data
+                        </h4>
 
                         <p>
                             User information is validated before submission.
                         </p>
+
                     </div>
+
                 </div>
 
             </div>
@@ -266,6 +359,7 @@
         </div>
 
     </section>
+
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
@@ -276,9 +370,14 @@
 
     </footer>
 
+
+    <!-- JavaScript -->
     <script>
 
-        // Password strength validation
+        // ==============================
+        // Password Strength
+        // ==============================
+
         function checkPasswordStrength() {
 
             const password =
@@ -304,11 +403,16 @@
 
                 message.textContent =
                     "Weak password. Use 8+ characters, uppercase, lowercase, number and special character.";
+
             }
+
         }
 
 
-        // Dynamic DOM update based on course selection
+        // ==============================
+        // Course Information
+        // ==============================
+
         function updateCourseInfo() {
 
             const course =
@@ -327,13 +431,19 @@
                 courseInfo.style.display = "block";
 
                 courseInfo.textContent =
-                    "You selected: " + course +
+                    "You selected: " +
+                    course +
                     ". This course is available for registration.";
+
             }
+
         }
 
 
-        // Form validation
+        // ==============================
+        // Form Validation
+        // ==============================
+
         function validateForm() {
 
             const name =
@@ -363,6 +473,7 @@
                 alert("Please fill all fields.");
 
                 return false;
+
             }
 
 
@@ -371,11 +482,13 @@
                 alert("Please enter a valid age.");
 
                 return false;
+
             }
 
 
             const strongPassword =
                 /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+
 
             if (!strongPassword.test(password)) {
 
@@ -384,20 +497,30 @@
                 );
 
                 return false;
+
             }
 
 
             return true;
+
         }
 
 
-        // Dynamic events
+        // ==============================
+        // Password Event
+        // ==============================
+
         document
             .getElementById("password")
             .addEventListener(
                 "input",
                 checkPasswordStrength
             );
+
+
+        // ==============================
+        // Course Event
+        // ==============================
 
         document
             .getElementById("course")
@@ -407,32 +530,305 @@
             );
 
 
-        // Client-side routing using URL hash
-        window.addEventListener("hashchange", function () {
+        // ==============================
+        // Client-side Routing
+        // ==============================
 
-            const section =
-                window.location.hash;
+        window.addEventListener(
+            "hashchange",
+            function () {
 
-            if (section === "#register") {
+                const section =
+                    window.location.hash;
 
-                document
-                    .getElementById("register")
-                    .scrollIntoView({
-                        behavior: "smooth"
-                    });
+                if (section === "#register") {
 
-            } else {
+                    document
+                        .getElementById("register")
+                        .scrollIntoView({
+                            behavior: "smooth"
+                        });
 
-                document
-                    .getElementById("home")
-                    .scrollIntoView({
-                        behavior: "smooth"
-                    });
+                } else {
+
+                    document
+                        .getElementById("home")
+                        .scrollIntoView({
+                            behavior: "smooth"
+                        });
+
+                }
+
+            }
+        );
+
+
+        // ==============================
+        // Load Students from API
+        // ==============================
+
+        async function loadStudents() {
+
+            try {
+
+                const response =
+                    await fetch("/api/students");
+
+                const students =
+                    await response.json();
+
+                const studentsList =
+                    document.getElementById("studentsList");
+
+                studentsList.innerHTML = "";
+
+
+                students.forEach(student => {
+
+                    const card =
+                        document.createElement("div");
+
+                    card.className =
+                        "col-md-6 col-lg-4";
+
+
+                    card.innerHTML = `
+    <div class="card shadow-sm h-100 p-3">
+
+        <h4>${student.name}</h4>
+
+        <p>
+            <strong>Email:</strong>
+            ${student.email}
+        </p>
+
+        <p>
+            <strong>Age:</strong>
+            ${student.age}
+        </p>
+
+        <p>
+            <strong>Course:</strong>
+            ${student.course}
+        </p>
+
+        <div class="d-flex gap-2 mt-3">
+
+            <button
+                class="btn btn-warning btn-sm"
+                onclick="updateStudent(${student.id})"
+            >
+                Update
+            </button>
+
+            <button
+                class="btn btn-danger btn-sm"
+                onclick="deleteStudent(${student.id})"
+            >
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+`;
+
+                    studentsList.appendChild(card);
+
+                });
+
+
+            } catch (error) {
+
+                console.error(
+                    "Error loading students:",
+                    error
+                );
+
+                document.getElementById("studentsList").innerHTML =
+                    "<p class='text-center text-danger'>Unable to load students.</p>";
+
             }
 
-        });
+        }
+
+
+        // ==============================
+        // Submit Student to API
+        // ==============================
+
+        document
+            .getElementById("studentForm")
+            .addEventListener(
+                "submit",
+                async function (event) {
+
+                    event.preventDefault();
+
+
+                    // Validate form
+                    if (!validateForm()) {
+
+                        return;
+
+                    }
+
+
+                    const studentData = {
+
+                        name:
+                            document.getElementById("name").value.trim(),
+
+                        email:
+                            document.getElementById("email").value.trim(),
+
+                        age:
+                            document.getElementById("age").value,
+
+                        course:
+                            document.getElementById("course").value
+
+                    };
+
+
+                    try {
+
+                        const response =
+                            await fetch(
+                                "/api/students",
+                                {
+                                    method: "POST",
+
+                                    headers: {
+                                        "Content-Type":
+                                            "application/json"
+                                    },
+
+                                    body:
+                                        JSON.stringify(studentData)
+                                }
+                            );
+
+
+                        const result =
+                            await response.json();
+
+
+                        if (!response.ok) {
+
+                            alert(result.message);
+
+                            return;
+
+                        }
+
+
+                        alert(
+                            "Student registered successfully!"
+                        );
+
+
+                        // Clear form
+                        document
+                            .getElementById("studentForm")
+                            .reset();
+
+
+                        // Hide course information
+                        updateCourseInfo();
+
+
+                        // Refresh student list
+                        loadStudents();
+
+
+                    } catch (error) {
+
+                        console.error(
+                            "Error:",
+                            error
+                        );
+
+                        alert(
+                            "Something went wrong!"
+                        );
+
+                    }
+
+                }
+            );
+
+
+        // ==============================
+        // Load API Data
+        // ==============================
+        async function deleteStudent(id) {
+
+    const confirmDelete = confirm("Are you sure you want to delete this student?");
+
+    if (!confirmDelete) {
+        return;
+    }
+
+    const response = await fetch(`/api/students/${id}`, {
+        method: "DELETE"
+    });
+
+    const result = await response.json();
+
+    alert(result.message);
+
+    loadStudents();
+}
+
+
+async function updateStudent(id) {
+
+    const name = prompt("Enter new name:");
+
+    if (!name) return;
+
+    const email = prompt("Enter new email:");
+
+    if (!email) return;
+
+    const age = prompt("Enter new age:");
+
+    if (!age) return;
+
+    const course = prompt("Enter new course:");
+
+    if (!course) return;
+
+
+    const response = await fetch(`/api/students/${id}`, {
+
+        method: "PUT",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            age: age,
+            course: course
+        })
+
+    });
+
+
+    const result = await response.json();
+
+    alert(result.message);
+
+    loadStudents();
+}
+        loadStudents();
 
     </script>
 
 </body>
+
 </html>
