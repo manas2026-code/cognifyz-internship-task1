@@ -696,14 +696,14 @@
 
             <button
                 class="btn btn-warning btn-sm"
-                onclick="updateStudent(${student.id})"
+                onclick="updateStudent('${student._id}')"
             >
                 Update
             </button>
 
             <button
                 class="btn btn-danger btn-sm"
-                onclick="deleteStudent(${student.id})"
+                onclick="deleteStudent('${student._id}')"
             >
                 Delete
             </button>
@@ -844,9 +844,14 @@
         return;
     }
 
-    const response = await fetch(`/api/students/${id}`, {
-        method: "DELETE"
-    });
+    const token = localStorage.getItem("token");
+
+const response = await fetch(`/api/students/${id}`, {
+    method: "DELETE",
+    headers: {
+        "Authorization": "Bearer " + token
+    }
+});
 
     const result = await response.json();
 
@@ -880,8 +885,9 @@ async function updateStudent(id) {
         method: "PUT",
 
         headers: {
-            "Content-Type": "application/json"
-        },
+    "Content-Type": "application/json",
+    "Authorization": "Bearer " + localStorage.getItem("token")
+},
 
         body: JSON.stringify({
             name: name,
